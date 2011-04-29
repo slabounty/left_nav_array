@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Left Navigation - <%= @item[:title] %></title>
+        <link rel="stylesheet" type="text/css" href="/css/screen.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="/css/style.css" media="screen">
+        <!--[if lt IE 8]><link rel="stylesheet" href="/css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+        <link rel="stylesheet" type="text/css" href="/css/print.css" media="print">
+        <meta name="generator" content="nanoc 3.1.6">
+    </head>
+    <body id="<%= @item[:page_id] %>">
+        <div class="container">
+            <%= render 'header' %>
+            <%= render 'navigation' %>
+            <div id="main" class="prepend-1 span-15 append-4 last">
+                <%= yield %>
+            </div>
+            <hr>
+            <%= render 'footer' %>
+        </div>
+    </body>
+</html>

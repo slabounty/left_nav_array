@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. "/about/" for the file
+#   "content/about.html"). To select all children, grandchildren, ... of an
+#   item, use the pattern "/about/*/"; "/about/*" will also select the parent,
+#   because "*" matches zero or more characters.
+
+
+compile '/css/*/' do
+    # don't filter or layout CSS files.
+end
+
+compile '/images/*/' do 
+  # Leave everything in the images directory as is.
+end 
+
+compile '*' do
+  filter :erb
+  layout 'default'
+end
+
+route 'css/*/' do 
+    item.identifier.chop + '.' + item[:extension] 
+end 
+
+route '/images/*/' do 
+    # Make sure that /images/some_image/ is routed to 
+    # /images/some_image.jpg or /images/some_image.png or so 
+    item.identifier.chop + '.' + item[:extension] 
+end 
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+layout '*', :erb

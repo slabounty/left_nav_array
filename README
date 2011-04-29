@@ -1,0 +1,1 @@
+This uses nanoc and shows a couple of different techniques. The main one is using an array to generate the navigation. We also use the Blueprint css framework for layout.

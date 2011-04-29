@@ -1,0 +1,12 @@
+--- 
+title: Navigation
+page_id: navigation
+---
+
+<div id="navigation" class="span-4">
+    <ul>
+        <% %w[home services location about].each do |mi| %>
+            <li><a class="<%=mi%>" href="<%= (mi == 'home') ? "" : "/#{mi}"%>/index.html"><%=mi.capitalize%></a></li>
+        <% end %>
+    </ul>
+</div>
